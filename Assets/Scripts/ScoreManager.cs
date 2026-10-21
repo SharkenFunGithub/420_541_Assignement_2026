@@ -13,7 +13,7 @@ public class ScoreManager : MonoBehaviour
     // Anyone can read the score, only ScoreManager can change it
     public int Score { get; private set; }
 
-    public static int ScoreBoostMuliplier { get; set; } = 1;
+    public static int ScoreBoostMultiplier { get; set; } = 1;
 
     public static int FinalScore { get; private set; }
 
@@ -38,7 +38,7 @@ public class ScoreManager : MonoBehaviour
     // Called by coins when they're collected
     public void AddScore(int amount)
     {
-        Score += amount * ScoreBoostMuliplier;
+        Score += amount * ScoreBoostMultiplier;
 
         // Print the new total to the Console window
         Debug.Log("Score: " + Score);

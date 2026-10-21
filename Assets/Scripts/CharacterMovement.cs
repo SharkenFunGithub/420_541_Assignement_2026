@@ -78,6 +78,7 @@ public class CharacterMovement : MonoBehaviour
 
         if (doubleJumpRequested && canDoubleJump)
         {
+            Debug.Log("Double Jump!");
             Jump(doubleJumpForce);
             doubleJumpRequested = false;
         }

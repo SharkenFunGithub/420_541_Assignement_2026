@@ -32,7 +32,7 @@ public class PlayerAnimatorController : MonoBehaviour
         else {
             // NEW: Double jump. Space again in mid-air.
             // The flip only plays if PlayerMovement really jumped.
-            if (Input.GetButtonDown("Jump") && movement.TryDoubleJump())
+            if (Input.GetButtonDown("Jump") && movement.TryDoubleJump() && movement.canDoubleJump)
             {
                 animator.SetTrigger("doDoubleJump");
             }

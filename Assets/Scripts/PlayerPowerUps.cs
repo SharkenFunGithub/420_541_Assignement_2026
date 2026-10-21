@@ -6,7 +6,7 @@ using UnityEngine.SocialPlatforms.Impl;
 public class PlayerPowerUps : MonoBehaviour
 {
     [SerializeField] private float boostMultiplier = 1.5f; // 50% faster
-    [SerializeField] private int scoreBoostMuliplier = 2;
+    [SerializeField] private int scoreBoostMultiplier = 2;
  
     // Seconds of boost left. The HUD reads it; only this script changes it.
     public float SpeedTimeLeft { get; private set; }
@@ -37,7 +37,7 @@ public class PlayerPowerUps : MonoBehaviour
     public void ActivateScoreBoost(float duration)
     {
         ScoreBoostTimeLeft = duration;
-        ScoreManager.ScoreBoostMuliplier = scoreBoostMuliplier;
+        ScoreManager.ScoreBoostMultiplier = scoreBoostMultiplier;
     }        
  
     private void Update()
@@ -61,12 +61,12 @@ public class PlayerPowerUps : MonoBehaviour
         
         if (JumpForceTimeLeft <= 0f)
         {
-            movement.canDoubleJump = false; // back to normal speed
+            movement.canDoubleJump = false; // back to normal jumping
         }  
 
         if (SpeedTimeLeft <= 0f)
         {
-            ScoreManager.ScoreBoostMuliplier = 1;
+            ScoreManager.ScoreBoostMultiplier = 1;
         }                    
     }
 }

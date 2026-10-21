@@ -10,8 +10,10 @@ public class LivesManager : MonoBehaviour
     // "static" means it belongs to the class, not to one object.
     public static LivesManager Instance { get; private set; }
 
+    private int presetLives = 3;
+
     // Anyone can read the score, only LivesManager can change it
-    public int Lives { get; private set; } = 3;
+    public int Lives { get; private set; }
 
     public static int FinalLives { get; private set; }
 
@@ -28,8 +30,10 @@ public class LivesManager : MonoBehaviour
 
 
         // Otherwise, this is the one and only ScoreManager
-        Instance = this;
+        Instance = this; 
         DontDestroyOnLoad(this);
+
+        Lives = presetLives;
     }
 
     public void AddLives(int amount)
@@ -45,14 +49,17 @@ public class LivesManager : MonoBehaviour
     {
         Lives -= amount;
 
-
         // Print the new total to the Console window
         Debug.Log("Lives: " + Lives);
-    }    
+    }     
 
     public void SaveFinalLives()
     {
         FinalLives = Lives;
     }
 
+    public void ResetLives()
+    {
+        Lives = presetLives;
+    }
 }

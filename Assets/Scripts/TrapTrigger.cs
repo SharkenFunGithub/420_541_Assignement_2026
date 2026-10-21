@@ -15,6 +15,7 @@ public class TrapTrigger : MonoBehaviour
                 Debug.Log("You hit a trap! Back to the checkpoint.");                
             } else {
                 SceneManager.LoadScene("LevelOneScene");
+                LivesManager.Instance.ResetLives();
                 Debug.Log("You're out of lives! Back to the beginning.");                    
             }
         }

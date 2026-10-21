@@ -1697,6 +1697,7 @@ GameObject:
   - component: {fileID: 5324611241291387476}
   - component: {fileID: 5350154158508262512}
   - component: {fileID: 6906575176736933005}
+  - component: {fileID: 6165085217690625617}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1828,6 +1829,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc405955d07562a48b155fe9b6947093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAnimator
+--- !u!114 &6165085217690625617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6799155194134901007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99057a43bf7baac42a9504ab54ff4c16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerPowerUps
+  boostMultiplier: 1.5
+  scoreBoostMultiplier: 2
 --- !u!1 &6938777251474795721
 GameObject:
   m_ObjectHideFlags: 0
