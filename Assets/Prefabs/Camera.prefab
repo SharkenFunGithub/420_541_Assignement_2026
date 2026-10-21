@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6165220391726020258}
   - component: {fileID: 5268197610230159013}
   - component: {fileID: 5691610125223729262}
+  - component: {fileID: 5836479837381451942}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -105,6 +106,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea91f043116b114497e54c207a5a07a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
+  target: {fileID: 0}
+  targetOffset: {x: 0, y: 1.5, z: 0}
+  distance: 5
+  sensitivityX: 3
+  sensitivityY: 3
+  minPitch: -20
+  maxPitch: 80
+  smoothTime: 0.1
+--- !u!114 &5836479837381451942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3872459839388341758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea91f043116b114497e54c207a5a07a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ThirdPersonCamera
   target: {fileID: 0}
   targetOffset: {x: 0, y: 1.5, z: 0}
   distance: 5
