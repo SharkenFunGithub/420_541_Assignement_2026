@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 // Gives the player a speed boost for a limited time.
 public class PlayerPowerUps : MonoBehaviour
@@ -42,31 +40,40 @@ public class PlayerPowerUps : MonoBehaviour
  
     private void Update()
     {
-        if (SpeedTimeLeft <= 0f) return; // no boost running
- 
-        SpeedTimeLeft -= Time.deltaTime;
-
-        if (JumpForceTimeLeft <= 0f) return; // no boost jumping
- 
-        JumpForceTimeLeft -= Time.deltaTime;    
-
-        if (ScoreBoostTimeLeft <= 0f) return; // no boost jumping
- 
-        ScoreBoostTimeLeft -= Time.deltaTime;                
- 
-        if (SpeedTimeLeft <= 0f)
+        // Speed boost timer
+        if (SpeedTimeLeft > 0f)
         {
-            movement.SpeedMultiplier = 1f; // back to normal speed
+            SpeedTimeLeft -= Time.deltaTime;
+
+            if (SpeedTimeLeft <= 0f)
+            {
+                SpeedTimeLeft = 0f;
+                movement.SpeedMultiplier = 1f;
+            }
         }
-        
-        if (JumpForceTimeLeft <= 0f)
-        {
-            movement.canDoubleJump = false; // back to normal jumping
-        }  
 
-        if (SpeedTimeLeft <= 0f)
+        // Double jump timer
+        if (JumpForceTimeLeft > 0f)
         {
-            ScoreManager.ScoreBoostMultiplier = 1;
-        }                    
+            JumpForceTimeLeft -= Time.deltaTime;
+
+            if (JumpForceTimeLeft <= 0f)
+            {
+                JumpForceTimeLeft = 0f;
+                movement.canDoubleJump = false;
+            }
+        }
+
+        // Double score timer
+        if (ScoreBoostTimeLeft > 0f)
+        {
+            ScoreBoostTimeLeft -= Time.deltaTime;
+
+            if (ScoreBoostTimeLeft <= 0f)
+            {
+                ScoreBoostTimeLeft = 0f;
+                ScoreManager.ScoreBoostMultiplier = 1;
+            }
+        }
     }
 }

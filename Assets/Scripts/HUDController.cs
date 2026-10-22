@@ -8,8 +8,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] private TMP_Text scoreText;
     [Header("Lives")]
     [SerializeField] private TMP_Text livesText;
- 
- 
+
     private void Update()
     {
         UpdateScore();

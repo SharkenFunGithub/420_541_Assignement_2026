@@ -6,16 +6,26 @@ public class PowerUpHUD : MonoBehaviour
 {
     [SerializeField] private PlayerPowerUps powerUps;
     [SerializeField] private GameObject speedIndicator; // icon + time
+    [SerializeField] private GameObject doubleJumpIndicator; // icon + time
+    [SerializeField] private GameObject doubleScoreIndicator; // icon + time
     [SerializeField] private TMP_Text speedTimeText;
- 
+    [SerializeField] private TMP_Text doubleJumpTimeText;
+    [SerializeField] private TMP_Text doubleScoreTimeText;
+    
     private void Update()
     {
-        float timeLeft = powerUps.SpeedTimeLeft;
- 
-        // Visible for the whole boost, hidden the rest of the time
-        speedIndicator.SetActive(timeLeft > 0f);
- 
-        // CeilToInt rounds 6.2 up to 7, so we never show 0s too early
-        speedTimeText.text = Mathf.CeilToInt(timeLeft) + "s";
+        float speedTimeLeft = powerUps.SpeedTimeLeft;
+        float scoreTimeLeft = powerUps.ScoreBoostTimeLeft;
+        float jumpTimeLeft = powerUps.JumpForceTimeLeft;
+
+        // Show each indicator while its power-up is active
+        speedIndicator.SetActive(speedTimeLeft > 0f);
+        doubleScoreIndicator.SetActive(scoreTimeLeft > 0f);
+        doubleJumpIndicator.SetActive(jumpTimeLeft > 0f);
+
+        // Update each timer
+        speedTimeText.text = Mathf.CeilToInt(speedTimeLeft) + "s";
+        doubleJumpTimeText.text = Mathf.CeilToInt(jumpTimeLeft) + "s";
+        doubleScoreTimeText.text = Mathf.CeilToInt(scoreTimeLeft) + "s";
     }
 }

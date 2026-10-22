@@ -44,9 +44,22 @@ public class ScoreManager : MonoBehaviour
         Debug.Log("Score: " + Score);
     }
 
+    public void RemovePoints(int amount)
+    {
+        Score -= amount;
+
+        // Print the new total to the Console window
+        Debug.Log("Score: " + Score);
+    }    
+
     public void SaveFinalScore()
     {
         FinalScore = Score;
+    }    
+    
+    public void ResetScore()
+    {
+        Score = 0;
     }
 
 }

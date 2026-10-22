@@ -16,15 +16,15 @@ public class PowerUpPickup : MonoBehaviour
         PlayerPowerUps powerUps = other.GetComponent<PlayerPowerUps>();
         if (powerUps == null) return;
  
-        if (gameObject.name == "SpeedBoostPickup")
+        if (gameObject.CompareTag("SpeedBoost"))
         {
             powerUps.ActivateSpeedBoost(duration);              
         }    
-        if (gameObject.name == "JumpBoostPickup")
+        if (gameObject.CompareTag("JumpBoost"))
         {
             powerUps.ActivateJumpBoost(duration);              
         }    
-        if (gameObject.name == "ScoreBoostPickup")
+        if (gameObject.CompareTag("ScoreBoost"))
         {
             powerUps.ActivateScoreBoost(duration);              
         }                    
